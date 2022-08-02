@@ -1,5 +1,6 @@
 from portas import *
 
+
 class Cruzamento:
 
     def __init__(self, SEMAFORO_1_VERMELHO, SEMAFORO_1_AMARELO,
