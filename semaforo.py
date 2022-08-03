@@ -1,28 +1,33 @@
-from cruzamento import Cruzamento
 from time import sleep
+from gpiozero import LED
 
 
-class Semaforo(Cruzamento):
+class Semaforo():
 
     def __init__(self, SEMAFORO_1_VERMELHO, SEMAFORO_1_AMARELO,
                  SEMAFORO_1_VERDE, SEMAFORO_2_VERMELHO,
-                 SEMAFORO_2_AMARELO, SEMAFORO_2_VERDE,
-                 ):
+                 SEMAFORO_2_AMARELO, SEMAFORO_2_VERDE):
 
-        self.SEMAFORO_1_VERMELHO = SEMAFORO_1_VERMELHO
-        self.SEMAFORO_1_AMARELO = SEMAFORO_1_AMARELO
-        self.SEMAFORO_1_VERDE = SEMAFORO_1_VERDE
+        self.SEMAFORO_1_VERMELHO = LED(SEMAFORO_1_VERMELHO)
+        self.SEMAFORO_1_AMARELO = LED(SEMAFORO_1_AMARELO)
+        self.SEMAFORO_1_VERDE = LED(SEMAFORO_1_VERDE)
 
-        self.SEMAFORO_2_VERMELHO = SEMAFORO_2_VERMELHO
-        self.SEMAFORO_2_AMARELO = SEMAFORO_2_AMARELO
-        self.SEMAFORO_2_VERDE = SEMAFORO_2_VERDE
+        self.SEMAFORO_2_VERMELHO = LED(SEMAFORO_2_VERMELHO)
+        self.SEMAFORO_2_AMARELO = LED(SEMAFORO_2_AMARELO)
+        self.SEMAFORO_2_VERDE = LED(SEMAFORO_2_VERDE)
 
         self.active = False
+
+        print(Semaforo)
 
     def inicia(self):
         self.SEMAFORO_1_VERMELHO.off()
         self.SEMAFORO_1_AMARELO.off()
         self.SEMAFORO_1_VERDE.off()
+
+        self.SEMAFORO_2_VERMELHO.off()
+        self.SEMAFORO_2_AMARELO.off()
+        self.SEMAFORO_2_VERDE.off()
 
     def modoEmergencia(self, active):
         self.active = active
@@ -52,7 +57,17 @@ class Semaforo(Cruzamento):
             sleep(1)
             print("Modo Atenção Ativado!")
 
-    def modoLibera(self):
-        SEMAFORO_1_VERMELHO.off()
-        SEMAFORO_1_AMARELO.off()
-        SEMAFORO_1_VERDE.on()
+    def modoSiga(self):
+        self.SEMAFORO_1_VERMELHO.off()
+        self.SEMAFORO_1_AMARELO.off()
+        self.SEMAFORO_1_VERDE.on()
+
+
+# s = Semaforo()
+
+
+# print('digite algo para ativar o modo de atenção:  ')
+# active = True
+# while(True):
+#     s.modoAtencao()
+#     print("Estou no modo Atenção!!")
