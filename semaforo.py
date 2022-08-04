@@ -12,6 +12,7 @@ class Semaforo():
         self.SEMAFORO_VERDE = LED(SEMAFORO_VERDE)
 
         self.ativado = False
+        self.modo_Noturno = False
 
     def inicia(self):
         self.SEMAFORO_VERMELHO.off()
@@ -29,7 +30,7 @@ class Semaforo():
 
     def modoNoturno(self):
         print("Modo Noturno Ativado")
-        while True:
+        while self.modo_Noturno == True:
             self.SEMAFORO_VERMELHO.off()
             self.SEMAFORO_AMARELO.blink()
             self.SEMAFORO_VERDE.off()
@@ -39,14 +40,10 @@ class Semaforo():
         self.SEMAFORO_AMARELO.off()
         self.SEMAFORO_VERDE.off()
 
-    def modoAtencao(self, ativado):
-        self.ativado = False
-        while ativado == True:
-            self.SEMAFORO_VERMELHO.off()
-            self.SEMAFORO_AMARELO.blink()
-            self.SEMAFORO_VERDE.off()
-            sleep(1)
-            print("Modo Atenção Ativado!")
+    def modoAtencao(self):
+        self.SEMAFORO_VERMELHO.off()
+        self.SEMAFORO_AMARELO.on()
+        self.SEMAFORO_VERDE.off()
 
     def modoSiga(self):
         self.SEMAFORO_VERMELHO.off()

@@ -1,7 +1,8 @@
 from portas import cruzamento1, cruzamento2
 from semaforo import Semaforo
 from botoes import Botoes
-from sensores import Sensores
+from sensorPresenca import SensorPresenca
+from sensorVelocidade import SensorVelocidade
 
 
 class Cruzamento():
@@ -44,28 +45,61 @@ class Cruzamento():
         self.semaforoPrincipal = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_1_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_1_AMARELO, SEMAFORO_VERDE=SEMAFORO_1_VERDE)
         self.semaforoSecundario = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_2_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_2_AMARELO, SEMAFORO_VERDE=SEMAFORO_2_VERDE)
 
+        self.botaoPrincipal = Botoes(BOTAO_PEDESTRE=BOTAO_PEDESTRE_1)
+        self.botaoSecundario = Botoes(BOTAO_PEDESTRE=BOTAO_PEDESTRE_2)
 
+
+        self.sensorPresenca1 = SensorPresenca(SENSOR_PASSAGEM=SENSOR_PASSAGEM_1)
+        self.sensorPresenca2 = SensorPresenca(SENSOR_PASSAGEM=SENSOR_PASSAGEM_2)
         
+        self.sensorSecundario = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_2_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_2_AMARELO, SEMAFORO_VERDE=SEMAFORO_2_VERDE)
 
-        self.contador = 0
+        # self.botaoFaixaPrincipal = Botoes()
+        # self.botaoFaixaSecundaria = Botoes()
+
+        # self.botaoFaixaPrincipal = Sensor()
+        # self.botaoFaixaSecundaria = Botoes()
+
+        self.contadorEstados = 0
         self.tempo = 0
 
-        def cicloCruzamento(self):
-            print("inicia o cruzamento")
-            if (self.estado == 0):
 
-            
-            elif()
 
-            elif()
+    def cicloCruzamento(self):
+        print("inicia o cruzamento")
+        if (self.estado == 0):
+            print("Estou no estado 0")
 
-            elif()
 
-            elif()
 
-            elif()
 
-            elif()
+            self.estado=1
+        elif(self.estado == 1):
+            print("Estou no estado 1")
+            self.estado=2
+
+        elif(self.estado == 2):
+            print("Estou no estado 2")
+            self.estado=3
+
+        elif(self.estado == 3):
+            print("Estou no estado 3")
+            self.estado=4
+
+        elif(self.estado == 4):
+            print("Estou no estado 4")
+            self.estado=5
+
+        else:
+            print("Estou no estado 5")
+            self.estado = 1
+
+        if(self.estado == 6):
+            self.modoEmergencia()
+
+        if(self.estado ==7):
+            self.modoNoturno()
+
 
         
 print(Cruzamento.semaforoPrincipal)
