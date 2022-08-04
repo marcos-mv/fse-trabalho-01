@@ -65,23 +65,25 @@ class Cruzamento():
         self.contadorEstados = 0
         self.tempo = 0
 
-
-
     def cicloCruzamento(self):
         print("inicia o cruzamento")
         if (self.estado == 0):
+            Semaforo.inicia()
             print("Estou no estado 0")
 
             self.estado=1
         elif(self.estado == 1):
+            Semaforo.modoPare()
             print("Estou no estado 1")
             self.estado=2
 
         elif(self.estado == 2):
+            Semaforo.modoAtencao()
             print("Estou no estado 2")
             self.estado=3
 
         elif(self.estado == 3):
+            Semaforo.modoSiga()
             print("Estou no estado 3")
             self.estado=4
 
@@ -98,6 +100,8 @@ class Cruzamento():
 
         if(self.estado ==7):
             self.modoNoturno()
+
+
 
 
         

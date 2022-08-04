@@ -7,3 +7,5 @@ class SensorVelocidade():
         self.SENSOR_VELOCIDADE_1_A = SENSOR_VELOCIDADE
 
         self.sensorA1 = Button(SENSOR_VELOCIDADE, pull_up= True)
+
+        self.activate = False
