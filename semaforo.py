@@ -50,4 +50,3 @@ class Semaforo():
         self.SEMAFORO_AMARELO.off()
         self.SEMAFORO_VERDE.on()
 
-print('Digite algo para ativar o modo de atenção:  ')

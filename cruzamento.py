@@ -1,8 +1,9 @@
-from portas import cruzamento1, cruzamento2
+from cruzamento import Cruzamento
 from semaforo import Semaforo
-from botoes import Botoes
 from sensorPresenca import SensorPresenca
 from sensorVelocidade import SensorVelocidade
+from botoes import Botoes
+from portas import cruzamento1, cruzamento2
 
 
 class Cruzamento():
@@ -42,23 +43,24 @@ class Cruzamento():
 
         self.numeroCruzamento = numeroCruzamento
 
+
+        #Inicializa Semaforos
         self.semaforoPrincipal = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_1_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_1_AMARELO, SEMAFORO_VERDE=SEMAFORO_1_VERDE)
         self.semaforoSecundario = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_2_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_2_AMARELO, SEMAFORO_VERDE=SEMAFORO_2_VERDE)
 
+        #Inicializa Botoes Pedestes
         self.botaoPrincipal = Botoes(BOTAO_PEDESTRE=BOTAO_PEDESTRE_1)
         self.botaoSecundario = Botoes(BOTAO_PEDESTRE=BOTAO_PEDESTRE_2)
 
-
+        #Inicializa Sensor de Presenca de Carros
         self.sensorPresenca1 = SensorPresenca(SENSOR_PASSAGEM=SENSOR_PASSAGEM_1)
         self.sensorPresenca2 = SensorPresenca(SENSOR_PASSAGEM=SENSOR_PASSAGEM_2)
-        
-        self.sensorSecundario = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_2_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_2_AMARELO, SEMAFORO_VERDE=SEMAFORO_2_VERDE)
 
-        # self.botaoFaixaPrincipal = Botoes()
-        # self.botaoFaixaSecundaria = Botoes()
-
-        # self.botaoFaixaPrincipal = Sensor()
-        # self.botaoFaixaSecundaria = Botoes()
+        #Inicializa Sensores de velocidade
+        self.sensorVelocidadeA1 = SensorVelocidade(SENSOR_VELOCIDADE=SENSOR_VELOCIDADE_1_A)
+        self.sensorVelocidadeA2 = SensorVelocidade(SENSOR_VELOCIDADE=SENSOR_VELOCIDADE_1_B)
+        self.sensorVelocidadeB1 = SensorVelocidade(SENSOR_VELOCIDADE=SENSOR_VELOCIDADE_2_A)
+        self.sensorVelocidadeB2 = SensorVelocidade(SENSOR_VELOCIDADE=SENSOR_VELOCIDADE_2_B)
 
         self.contadorEstados = 0
         self.tempo = 0
@@ -69,9 +71,6 @@ class Cruzamento():
         print("inicia o cruzamento")
         if (self.estado == 0):
             print("Estou no estado 0")
-
-
-
 
             self.estado=1
         elif(self.estado == 1):

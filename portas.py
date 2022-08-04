@@ -1,6 +1,7 @@
 from cruzamento import Cruzamento
 from semaforo import Semaforo
-from sensores import Sensores
+from sensorPresenca import SensorPresenca
+from sensorVelocidade import SensorVelocidade
 from botoes import Botoes
 
 cruzamento1 = Cruzamento(
