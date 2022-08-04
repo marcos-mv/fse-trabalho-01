@@ -4,70 +4,53 @@ from gpiozero import LED
 
 class Semaforo():
 
-    def __init__(self, SEMAFORO_1_VERMELHO, SEMAFORO_1_AMARELO,
-                 SEMAFORO_1_VERDE, SEMAFORO_2_VERMELHO,
-                 SEMAFORO_2_AMARELO, SEMAFORO_2_VERDE):
+    def __init__(self, SEMAFORO_VERMELHO, SEMAFORO_AMARELO,
+                 SEMAFORO_VERDE):
 
-        self.SEMAFORO_1_VERMELHO = LED(SEMAFORO_1_VERMELHO)
-        self.SEMAFORO_1_AMARELO = LED(SEMAFORO_1_AMARELO)
-        self.SEMAFORO_1_VERDE = LED(SEMAFORO_1_VERDE)
+        self.SEMAFORO_VERMELHO = LED(SEMAFORO_VERMELHO)
+        self.SEMAFORO_AMARELO = LED(SEMAFORO_AMARELO)
+        self.SEMAFORO_VERDE = LED(SEMAFORO_VERDE)
 
-        self.SEMAFORO_2_VERMELHO = LED(SEMAFORO_2_VERMELHO)
-        self.SEMAFORO_2_AMARELO = LED(SEMAFORO_2_AMARELO)
-        self.SEMAFORO_2_VERDE = LED(SEMAFORO_2_VERDE)
-
-        self.active = False
-
-        print(Semaforo)
+        self.ativado = False
 
     def inicia(self):
-        self.SEMAFORO_1_VERMELHO.off()
-        self.SEMAFORO_1_AMARELO.off()
-        self.SEMAFORO_1_VERDE.off()
+        self.SEMAFORO_VERMELHO.off()
+        self.SEMAFORO_AMARELO.off()
+        self.SEMAFORO_VERDE.off()
+        print("Semaforos Desligados!!!")
 
-        self.SEMAFORO_2_VERMELHO.off()
-        self.SEMAFORO_2_AMARELO.off()
-        self.SEMAFORO_2_VERDE.off()
-
-    def modoEmergencia(self, active):
-        self.active = active
-        print("Modo Emergencial Ativado.")
-        while self.active == True:
-            self.SEMAFORO_1_VERMELHO.off()
-            self.SEMAFORO_1_AMARELO.off()
-            self.SEMAFORO_1_VERDE.on()
+    def modoEmergencia(self, ativado):
+        self.ativado = ativado
+        print("Modo Emergencia Ativado.")
+        while self.ativado == True:
+            self.SEMAFORO_VERMELHO.off()
+            self.SEMAFORO_AMARELO.off()
+            self.SEMAFORO_VERDE.on()
 
     def modoNoturno(self):
+        print("Modo Noturno Ativado")
         while True:
-            self.SEMAFORO_1_VERMELHO.off()
-            self.SEMAFORO_1_AMARELO.blink()
-            self.SEMAFORO_1_VERDE.off()
+            self.SEMAFORO_VERMELHO.off()
+            self.SEMAFORO_AMARELO.blink()
+            self.SEMAFORO_VERDE.off()
 
     def modoPare(self):
-        self.SEMAFORO_1_VERMELHO.on()
-        self.SEMAFORO_1_AMARELO.off()
-        self.SEMAFORO_1_VERDE.off()
+        self.SEMAFORO_VERMELHO.on()
+        self.SEMAFORO_AMARELO.off()
+        self.SEMAFORO_VERDE.off()
 
-    def modoAtencao(self, active):
-        self.active = False
-        while active == True:
-            self.SEMAFORO_1_VERMELHO.off()
-            self.SEMAFORO_1_AMARELO.blink()
-            self.SEMAFORO_1_VERDE.off()
+    def modoAtencao(self, ativado):
+        self.ativado = False
+        while ativado == True:
+            self.SEMAFORO_VERMELHO.off()
+            self.SEMAFORO_AMARELO.blink()
+            self.SEMAFORO_VERDE.off()
             sleep(1)
             print("Modo Atenção Ativado!")
 
     def modoSiga(self):
-        self.SEMAFORO_1_VERMELHO.off()
-        self.SEMAFORO_1_AMARELO.off()
-        self.SEMAFORO_1_VERDE.on()
+        self.SEMAFORO_VERMELHO.off()
+        self.SEMAFORO_AMARELO.off()
+        self.SEMAFORO_VERDE.on()
 
-
-# s = Semaforo()
-
-
-# print('digite algo para ativar o modo de atenção:  ')
-# active = True
-# while(True):
-#     s.modoAtencao()
-#     print("Estou no modo Atenção!!")
+print('Digite algo para ativar o modo de atenção:  ')

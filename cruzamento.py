@@ -1,4 +1,4 @@
-from portas import *
+from portas import cruzamento1, cruzamento2
 from semaforo import Semaforo
 from botoes import Botoes
 from sensores import Sensores
@@ -36,9 +36,37 @@ class Cruzamento():
         self.SENSOR_VELOCIDADE_2_A = SENSOR_VELOCIDADE_2_A
         self.SENSOR_VELOCIDADE_2_B = SENSOR_VELOCIDADE_2_B
 
+        self.estado = 0
+        self.segundos = 0
+
         self.numeroCruzamento = numeroCruzamento
+
+        self.semaforoPrincipal = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_1_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_1_AMARELO, SEMAFORO_VERDE=SEMAFORO_1_VERDE)
+        self.semaforoSecundario = Semaforo(SEMAFORO_VERMELHO=SEMAFORO_2_VERMELHO,SEMAFORO_AMARELO=SEMAFORO_2_AMARELO, SEMAFORO_VERDE=SEMAFORO_2_VERDE)
+
+
+        
 
         self.contador = 0
         self.tempo = 0
 
-semaforo1 = Cruzamento(21, 26, 1, 12, 16, 20, 1)
+        def cicloCruzamento(self):
+            print("inicia o cruzamento")
+            if (self.estado == 0):
+
+            
+            elif()
+
+            elif()
+
+            elif()
+
+            elif()
+
+            elif()
+
+            elif()
+
+        
+print(Cruzamento.semaforoPrincipal)
+

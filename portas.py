@@ -1,5 +1,7 @@
 from cruzamento import Cruzamento
-
+from semaforo import Semaforo
+from sensores import Sensores
+from botoes import Botoes
 
 cruzamento1 = Cruzamento(
     SEMAFORO_1_VERMELHO = 21,
